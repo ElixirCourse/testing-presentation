@@ -1,7 +1,9 @@
 #HSLIDE
 
 #### TDD is dead.
----?image=assets/troll.png
+
+#HSLIDE
+![Image-Relative](assets/troll.png)
 
 #HSLIDE
 
@@ -13,7 +15,7 @@
 
 #HSLIDE
 
----?image=assets/troll.png
+![Image-Relative](assets/troll.png)
 
 #HSLIDE
 
@@ -54,7 +56,7 @@ b  # [0]
 ### Защо небете е синьо?
 
 #HSLIDE
----?image=assets/troll.png
+![Image-Relative](assets/troll.png)
 
 #HSLIDE
 
@@ -69,7 +71,7 @@ b  # [0]
 ### Това са ми аргументите.
 
 #HSLIDE
----?image=assets/troll.png
+![Image-Relative](assets/troll.png)
 
 #HSLIDE
 
@@ -206,11 +208,13 @@ assert value in [1, 2, 3, 4]
 
 #### Най-често за да даваме примери на колегите, които ще ни ползват кода.
 
+#HSLIDE
+
 ##### Включително и ние след седмица.
 
 #HSLIDE
 
-### Оставаме сигурни, че документацията ни важи за последната версия на кода.
+##### Оставаме сигурни, че документацията ни важи за последната версия на кода.
 
 #HSLIDE
 
@@ -251,7 +255,7 @@ iex> Enum.map [1, 2, 3], fn(x) ->
 #### Не mock-ваме в Elixir
 
 #HSLIDE
----?image=assets/troll.png
+![Image-Relative](assets/troll.png)
 
 #HSLIDE
 
