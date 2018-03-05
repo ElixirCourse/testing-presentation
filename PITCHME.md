@@ -1,12 +1,12 @@
-# Тестване в Elixir
-
-TDD is dead.
+### Тестване в Elixir
+####TDD is dead.
 
 #HSLIDE
 
-## Но първо - малко въпроси!
+### Но първо - малко въпроси!
 
-![Image-Absolute](assets/troll.png)
+#HSLIDE
+---?image=assets/troll.png
 
 #HSLIDE
 
@@ -40,51 +40,49 @@ b  # [0]
 
 #HSLIDE
 
-## Cons a (Cons b (Cons ... (Cons z Nil)...))
+### Cons a (Cons b (Cons ... (Cons z Nil)...))
 
 #HSLIDE
 
-## Защо небете е синьо?
+### Защо небете е синьо?
+
+#HSLIDE
+---?image=assets/troll.png
 
 #HSLIDE
 
-![Image-Absolute](assets/troll.png)
+### Защо тестваме?
 
 #HSLIDE
 
-## Защо тестваме?
+### Защото трябва.
 
 #HSLIDE
 
-# Защото e важно.
+### Това са ми аргументите.
+
+#HSLIDE
+---?image=assets/troll.png
 
 #HSLIDE
 
-# Това са ми аргументите.
+#### По-лесно да пишем код.
 
 #HSLIDE
 
-![Image-Absolute](assets/troll.png)
+#### Пази ни от регресии.
 
 #HSLIDE
 
-### По-лесно да пишем код.
+#### Документация.
 
 #HSLIDE
 
-### Пази ни от регресии.
+#### Да откриваме по-хубав интерфейс на кода ни.
 
 #HSLIDE
 
-### Документация.
-
-#HSLIDE
-
-### Да откриваме по-хубав интерфейс на кода ни.
-
-#HSLIDE
-
-## (Four-phase testing.)[http://xunitpatterns.com/Four%20Phase%20Test.html]
+#### [Four-phase testing.](http://xunitpatterns.com/Four%20Phase%20Test.html)
 
 #HSLIDE
 
@@ -95,7 +93,7 @@ b  # [0]
 
 #HSLIDE
 
-## А сега в Elixir код
+### А сега в Elixir код
 
 #HSLIDE
 ```elixir
@@ -115,7 +113,7 @@ defmodule ServerTest do
 end
 ```
 
-## Тестване в Elixir
+### Тестване в Elixir
 
   - Вградена библиотека ExUnit
   - Примерите ни в документациятата може да се използва за тестове
@@ -124,7 +122,7 @@ end
 
 #HSLIDE
 
-## ExUnit
+### ExUnit
 
   - стартираме `ExUnit.start()`
   - използва се като напишем `use ExUnit.Case`
@@ -134,7 +132,7 @@ end
 
 #HSLIDE
 
-### Пример:
+#### Пример:
 
 ```elixir
 # Файл: assertion_test.exs
@@ -146,7 +144,7 @@ ExUnit.start()
 defmodule AssertionTest do
   # 3) Опцията "async: true" ще стартира всички тестови случаи(модули) конкуретно.
   # Индивидуалните тестове в един модул ще останат последователно.
-  # (За Борко)[https://github.com/elixir-lang/elixir/issues/3580]
+  # [За Борко](https://github.com/elixir-lang/elixir/issues/3580)
   use ExUnit.Case, async: true
 
   # 4) Използваме макроса "test" вместо "def" за четимост.
@@ -158,11 +156,11 @@ end
 
 #HSLIDE
 
-# assert
+### assert
 
 #HSLIDE
 
-# assert е макро, за да ни позволява такива неща:
+### assert е макро, за да ни позволява такива неща:
 
 #HSLIDE
 
@@ -175,7 +173,7 @@ assert value in [1, 2, 3, 4]
 
 #HSLIDE
 
-### Има и други
+#### Има и други
 
   - assert_receive
   - assert_in_delta
@@ -185,29 +183,29 @@ assert value in [1, 2, 3, 4]
 
 #HSLIDE
 
-## (Ще си ги видите)[https://hexdocs.pm/ex_unit/ExUnit.Assertions.html#content]
+#### [Ще си ги видите](https://hexdocs.pm/ex_unit/ExUnit.Assertions.html#content)
 
 #HSLIDE
 
-# `doctest/1`
+### `doctest/1`
 
 #HSLIDE
 
-## Документация като тестове, what the f***?
+#### Документация като тестове, what the f***?
 
 #HSLIDE
 
-## Най-често за да даваме примери на колегите, които ще ни ползват кода.
+#### Най-често за да даваме примери на колегите, които ще ни ползват кода.
 
-### Включително и ние след седмица.
-
-#HSLIDE
-
-## Оставяме сигурни, че документацията ни важи за последната версия на кода.
+##### Включително и ние след седмица.
 
 #HSLIDE
 
-# Syntax
+### Оставаме сигурни, че документацията ни важи за последната версия на кода.
+
+#HSLIDE
+
+### Syntax
 
 #HSLIDE
 
@@ -224,7 +222,7 @@ iex> 1+1
 
 #HSLIDE
 
-### или
+##### или
 
 #HSLIDE
 
@@ -237,15 +235,14 @@ iex> Enum.map [1, 2, 3], fn(x) ->
 
 #HSLIDE
 
-# Mock-ване в Elixir
+### Mock-ване в Elixir
 
 #HSLIDE
 
-## Не mock-ваме в Elixir
+#### Не mock-ваме в Elixir
 
 #HSLIDE
-
-![Image-Absolute](assets/troll.png)
+---?image=assets/troll.png
 
 #HSLIDE
 
