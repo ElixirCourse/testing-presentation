@@ -4,6 +4,8 @@
 
 ---?image=assets/troll.jpg&size=auto 90%
 
+---
+
 ### Тестване в Elixir
 
 ---
@@ -65,6 +67,8 @@ b  # [0]
 ### Това са ми аргументите.
 
 ---?image=assets/troll.jpg&size=auto 90%
+
+---
 
 
 #### По-лесно да пишем код.
@@ -247,6 +251,8 @@ iex> Enum.map [1, 2, 3], fn(x) ->
 #### Не mock-ваме в Elixir
 
 ---?image=assets/troll.jpg&size=auto 90%
+
+---
 
 ## Използваме mock-ове :)
 
