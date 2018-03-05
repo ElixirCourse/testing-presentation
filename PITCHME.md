@@ -1,11 +1,18 @@
+#HSLIDE
+
+#### TDD is dead.
+---?image=assets/troll.png
+
+#HSLIDE
+
 ### Тестване в Elixir
-####TDD is dead.
 
 #HSLIDE
 
 ### Но първо - малко въпроси!
 
 #HSLIDE
+
 ---?image=assets/troll.png
 
 #HSLIDE
@@ -112,6 +119,8 @@ defmodule ServerTest do
   end
 end
 ```
+
+#HSLIDE
 
 ### Тестване в Elixir
 
