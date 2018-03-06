@@ -279,7 +279,123 @@ iex> Enum.map [1, 2, 3], fn(x) ->
 
 ---
 
-## Използваме mock-ове :)
+#### Използваме mock-ове :)
 
-TODO: Finish mock example
-TODO: Maybe property testing
+---
+
+##### Нека дам пример
+
+---
+
+##### Проблемът.
+
+---
+
+```elixir
+defmodule MyApp.WeatherReporter do
+  def is_it_cold(city) do
+    {:ok, temperature} = MyApp.WeatherClient.get_temperature(city)
+    report(temperature)
+  end
+
+  defp report(n) when is_integer(n) and n < 10, do: "Don't go outside"
+  defp report(n) when is_integer(n), do: "Go outside, if that's your thing"
+  defp report(_), do: "Try again maybe?"
+end
+```
+
+---
+
+##### Какво бихме направили, за да го изтестваме това?
+
+---
+
+`mock(HTTPClient, :get, to_return: %{..., "temperature" => "20", ...})`
+
+---
+
+##### Не толкова бързо!
+
+---
+
+##### Решението.
+
+---
+
+##### Решението.
+
+---
+
+```elixir
+defmodule MyApp.WeatherReporter do
+  @weather_client = Application.get_env(:my_app, :weather_client)
+
+  def is_it_cold(city) do
+    {:ok, temperature} = @weather_client.get_temperature(city)
+    report(temperature)
+  end
+
+  defp report(n) when is_integer(n) and n < 10, do: "Don't go outside"
+  defp report(n) when is_integer(n), do: "Go outside, if that's your thing"
+  defp report(_), do: "Try again maybe?"
+end
+```
+
+---
+
+##### Остава да нагласим weather клиента.
+
+---
+
+```elixir
+# In config/dev.exs
+config :my_app, :weather_client, MyApp.Weather.Sandbox
+
+# In config/test.exs
+config :my_app, :weather_client, MyApp.WeatherMock
+
+# In config/prod.exs
+config :my_app, :weather_client, MyApp.WeatherClient
+```
+
+---
+
+#### Вече сме готови
+
+---
+
+#### Какво правим, ако все пак искаме да тестваме клиента?
+
+---
+
+```elixir
+defmodule MyApp.WeatherClient.Test do
+  use ExUnit.Case, async: true
+
+  # All tests will ping the twitter API
+  @moduletag :weather_client
+
+  # Write your tests here
+end
+```
+
+---
+
+##### Използвахме модулен атрибут, за да можем да отделим този тест ето така:
+
+---
+
+- Казваме теста да не се пуска с останалите:
+
+```elixir
+# test/test_helper.exs
+ExUnit.configure exclude: [:weather_client]
+ExUnit.start()
+```
+
+- Ако искаме все пак да ги пуснем(CI)
+
+```elixir
+mix test --include twitter_api
+```
+
