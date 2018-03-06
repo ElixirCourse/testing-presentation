@@ -126,8 +126,7 @@ end
 ### Тестване в Elixir
 
   - Вградена библиотека ExUnit
-  - Примерите ни в документациятата може да се използва за тестове
-  - Fixture-и
+  - doctest/1
   - Mock-ове
 
 ---
@@ -135,7 +134,7 @@ end
 ### ExUnit
 
   - стартираме `ExUnit.start()`
-  - използва се като напишем `use ExUnit.Case`
+  - use-ва се като use-нем `use ExUnit.Case`
   - магическите думи `async: true`
   - използваме макрото `test`
 
@@ -163,8 +162,8 @@ defmodule AssertionTest do
   # 3) Опцията "async: true" ще стартира всички тестови
   #    случаи(модули) конкуретно. Индивидуалните тестове
   #    в един модул ще останат последователно.
-  # [За Борко]
-  # (https://github.com/elixir-lang/elixir/issues/3580)
+  # За Борко:
+  # https://github.com/elixir-lang/elixir/issues/3580
   use ExUnit.Case, async: true
 
   # ...
@@ -313,7 +312,9 @@ end
 
 ---
 
-`mock(HTTPClient, :get, to_return: %{..., "temperature" => "20", ...})`
+```elixir
+mock(HTTPClient, :get, to_return: %{..., "temperature" => "20", ...})
+```
 
 ---
 
@@ -330,19 +331,17 @@ defmodule MyApp.WeatherReporter do
   @weather_client = Application.get_env(:my_app, :weather_client)
 
   def is_it_cold(city) do
-    {:ok, temperature} = @weather_client.get_temperature(city)
-    report(temperature)
+    {:ok, t} = @weather_client.get_temperature(city)
+    report(t)
   end
 
-  defp report(n) when is_integer(n) and n < 10, do: "Don't go outside"
-  defp report(n) when is_integer(n), do: "Go outside, if that's your thing"
-  defp report(_), do: "Try again maybe?"
+  ...
 end
 ```
 
 ---
 
-##### Остава да нагласим weather клиента.
+##### Остава да нагласим клиента за времето.
 
 ---
 
@@ -371,10 +370,10 @@ config :my_app, :weather_client, MyApp.WeatherClient
 defmodule MyApp.WeatherClient.Test do
   use ExUnit.Case, async: true
 
-  # All tests will ping the twitter API
-  @moduletag :weather_client
+  # Всичките ни тестове ще питат Емо Чолаков за времето
+  @moduletag :weather_client 
 
-  # Write your tests here
+  # Долу в тестовете вече питаме Емо Чолаков
 end
 ```
 
