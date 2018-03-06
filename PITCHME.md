@@ -304,7 +304,6 @@ defmodule MyApp.WeatherReporter do
                  do: "Don't go outside"
   defp report(n) when is_integer(n),
                  do: "Go outside, if that's your thing"
-  defp report(_), do: "Try again maybe?"
 end
 ```
 
