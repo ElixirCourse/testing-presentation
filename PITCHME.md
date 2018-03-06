@@ -147,6 +147,14 @@ end
 
 # 1) Стартирам ExUnit
 ExUnit.start()
+```
+
+---
+
+#### Пример:
+
+```
+# Файл: assertion_test.exs
 
 # 2) Създаваме нов модул и use-ваме ExUnit.
 defmodule AssertionTest do
@@ -156,6 +164,20 @@ defmodule AssertionTest do
   # [За Борко]
   # (https://github.com/elixir-lang/elixir/issues/3580)
   use ExUnit.Case, async: true
+
+  # ...
+end
+```
+
+---
+
+#### Пример:
+
+```
+# Файл: assertion_test.exs
+
+defmodule AssertionTest do
+  # ...
 
   # 4) Използваме макроса "test" вместо "def" за четимост.
   test "the truth" do
