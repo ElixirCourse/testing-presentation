@@ -313,7 +313,7 @@ end
 ---
 
 ```elixir
-mock(HTTPClient, :get, to_return: %{..., "temperature" => "20", ...})
+mock(HTTPClient, :get, to_return: %{..., "temperature" => 20, ...})
 ```
 
 ---
