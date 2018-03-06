@@ -68,6 +68,8 @@ Cons a (Cons b (Cons ... (Cons z Nil)...))
 
 #### Може да ходим да пием еликсири.
 
+---?image=assets/beers.jpg&size=auto 90%
+
 ---?image=assets/troll.jpg&size=auto 90%
 
 ---
@@ -399,3 +401,31 @@ ExUnit.start()
 mix test --include twitter_api
 ```
 
+---
+
+#### Малко библиотеки да разгледате за вкъщи
+
+---
+
+#### [ExUnit](https://hexdocs.pm/ex_unit/ExUnit.html) разбира се
+
+---
+
+#### [Mockery](https://hexdocs.pm/mockery/readme.html) - спестява бойлерплейта на горния пример с мокове
+
+---
+#### [Mox](https://hexdocs.pm/mox/Mox.html) - същото с повече експлицитност
+
+---
+
+#### [ExMachina](https://hexdocs.pm/ex_machina/ExMachina.html) - test data
+
+---
+
+#### [use Plug.Test](https://hexdocs.pm/plug/Plug.Test.html) - за боравене с Plug
+
+---
+
+#### [Oще статии по проблема с Mock-ването](http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/)
+
+---?image=assets/beers.jpg&size=auto 90%
