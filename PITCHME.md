@@ -296,12 +296,14 @@ iex> Enum.map [1, 2, 3], fn(x) ->
 ```elixir
 defmodule MyApp.WeatherReporter do
   def is_it_cold(city) do
-    {:ok, temperature} = MyApp.WeatherClient.get_temperature(city)
-    report(temperature)
+    {:ok, t} = MyApp.WeatherClient.get_temperature(city)
+    report(t)
   end
 
-  defp report(n) when is_integer(n) and n < 10, do: "Don't go outside"
-  defp report(n) when is_integer(n), do: "Go outside, if that's your thing"
+  defp report(n) when is_integer(n) and n < 10,
+                 do: "Don't go outside"
+  defp report(n) when is_integer(n),
+                 do: "Go outside, if that's your thing"
   defp report(_), do: "Try again maybe?"
 end
 ```
@@ -317,10 +319,6 @@ end
 ---
 
 ##### Не толкова бързо!
-
----
-
-##### Решението.
 
 ---
 
