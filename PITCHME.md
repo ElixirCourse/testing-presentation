@@ -153,7 +153,7 @@ ExUnit.start()
 
 #### Пример:
 
-```
+```elixir
 # Файл: assertion_test.exs
 
 # 2) Създаваме нов модул и use-ваме ExUnit.
@@ -173,7 +173,7 @@ end
 
 #### Пример:
 
-```
+```elixir
 # Файл: assertion_test.exs
 
 defmodule AssertionTest do
