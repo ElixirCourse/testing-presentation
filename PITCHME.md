@@ -310,30 +310,7 @@ end
 
 ### Тестване на процеси
 
-```elixir
-defmodule ProcessTest do
-  use ExUnit.Case, async: true
-
-  def ping_server(receiver) do
-    receive do
-      msg ->
-        send(receiver, msg)
-        ping_server(receiver)
-    end
-  end
-
-  setup do
-    pid = spawn(__MODULE__, :ping_server, [self()])
-
-    {:ok, server: pid}
-  end
-
-  test "receiving messages", %{server: server} do
-    send(server, :hello)
-
-    assert_receive :hello
-  end
-end```
+Да попишем малко код
 
 ---
 
