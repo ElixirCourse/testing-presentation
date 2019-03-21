@@ -449,7 +449,7 @@ https://hexdocs.pm/plug/Plug.Test.html
 
 ---
 
-#### [Oще статии по проблема с Mock-ването]
+#### Oще статии по проблема с Mock-ването
 
 http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/
 
