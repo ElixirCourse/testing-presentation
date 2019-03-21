@@ -208,6 +208,17 @@ end
 ---
 
 ```elixir
+defmodule ContextDemoTest do
+  def setup(context) do
+    {:ok, [:client, "My custom client"]}
+  end
+
+  @tag user_id, 1
+  test "the client is setup properly", %{client: client, user_id: user_id} do
+    assert client == "My custom client"
+    assert user_id == 1
+  end
+end
 ```
 
 ---
@@ -281,29 +292,54 @@ iex> 1+1
 ---
 
 ```elixir
-@doc """
-Square a collection of numbers.
+defmodule DoctestDemo do
+  @doc """
+  Square a collection of numbers.
 
-## Examples
+  ## Examples
 
-  iex> DoctestDemo.square([1, 2, 3])
-  [1, 4, 9]
+    iex> DoctestDemo.square([1, 2, 3])
+    [1, 4, 9]
 
-"""
-def square(list) do
-  Enum.map(list, fn x -> x * x end)
+  """
+  def square(list) do
+    Enum.map(list, fn x -> x * x end)
+  end
 end
 ```
 
 ---
 
-### Mock-ване в Elixir
+### Тестване на процеси
+
+```elixir
+defmodule ProcessTest do
+  use ExUnit.Case, async: true
+
+  def ping_server(receiver) do
+    receive do
+      msg ->
+        send(receiver, msg)
+        ping_server(receiver)
+    end
+  end
+
+  setup do
+    pid = spawn(__MODULE__, :ping_server, [self()])
+
+    {:ok, server: pid}
+  end
+
+  test "receiving messages", %{server: server} do
+    send(server, :hello)
+
+    assert_receive :hello
+  end
+end```
 
 ---
 
-#### Не mock-ваме в Elixir
-
----?image=assets/troll.jpg&size=auto 90%
+### Mock-ване в Elixir
 
 ---
 
@@ -340,20 +376,6 @@ end
 ---
 
 ```elixir
-mock(HTTPClient, :get, to_return: %{..., "temperature" => 20, ...})
-```
-
----
-
-##### Не толкова бързо!
-
----
-
-##### Решението.
-
----
-
-```elixir
 defmodule MyApp.WeatherReporter do
   @weather_client = Application.get_env(:my_app, :weather_client)
 
@@ -382,10 +404,6 @@ config :my_app, :weather_client, MyApp.WeatherMock
 # In config/prod.exs
 config :my_app, :weather_client, MyApp.WeatherClient
 ```
-
----
-
-#### Вече сме готови
 
 ---
 
@@ -420,10 +438,10 @@ ExUnit.start()
 
 ---
 
-- Ако искаме все пак да ги пуснем(CI)
+##### Ако искаме все пак да ги пуснем(CI)
 
 ```elixir
-mix test --include twitter_api
+mix test --include weather_client
 ```
 
 ---
@@ -437,9 +455,7 @@ mix test --include twitter_api
 ---
 
 #### [Mockery](https://hexdocs.pm/mockery/readme.html) - спестява бойлерплейта на горния пример с мокове
-
----
-#### [Mox](https://hexdocs.pm/mox/Mox.html) - същото с повече експлицитност
+#### [Mox](https://hexdocs.pm/mox/Mox.html) - друг подход за concurrent mocks
 
 ---
 
