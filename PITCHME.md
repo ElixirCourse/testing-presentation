@@ -425,23 +425,32 @@ mix test --include weather_client
 
 ---
 
-#### [ExUnit](https://hexdocs.pm/ex_unit/ExUnit.html) разбира се
+* ExUnit разбира се
+  * https://hexdocs.pm/ex_unit/ExUnit.html
 
 ---
 
-#### [Mockery](https://hexdocs.pm/mockery/readme.html) - спестява бойлерплейта на горния пример с мокове
-#### [Mox](https://hexdocs.pm/mox/Mox.html) - друг подход за concurrent mocks
+* Mockery - спестява бойлерплейта на горния пример с мокове
+  * https://hexdocs.pm/mockery/readme.html
+* Mox - друг подход за concurrent mocks
+  * https://hexdocs.pm/mox/Mox.html
 
 ---
 
-#### [ExMachina](https://hexdocs.pm/ex_machina/ExMachina.html) - test data
+#### ExMachina - test data
+
+https://hexdocs.pm/ex_machina/ExMachina.html
 
 ---
 
-#### [use Plug.Test](https://hexdocs.pm/plug/Plug.Test.html) - за боравене с Plug
+#### use Plug.Test - за боравене с Plug
+
+https://hexdocs.pm/plug/Plug.Test.html
 
 ---
 
-#### [Oще статии по проблема с Mock-ването](http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/)
+#### [Oще статии по проблема с Mock-ването]
+
+http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/
 
 ---?image=assets/beers.jpg&size=auto 90%
